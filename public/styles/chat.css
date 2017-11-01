@@ -1,0 +1,135 @@
+/**
+ * 登陆聊天室
+ */
+.login_module {
+	display: flex;
+	padding-top: 150px;
+	justify-content: center;
+}
+.login_module .username {
+	width: 160px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 5px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+}
+.login_module .login {
+	color: #fff;
+	font-size: 14px;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	margin-left: 10px;
+	background: #000;
+}
+
+/**
+ * 聊天室
+ */
+.chat_room {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 100px;
+}
+.room_info {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	padding: 10px 0;
+}
+.room_info .online {
+	color: #666;
+	font-size: 14px;
+}
+.room_info .online .num {
+	color: #333;
+}
+.room_info .tips {
+	color: #333;
+	font-size: 14px;
+}
+.chat_room .chat_msg {
+	box-sizing: border-box;
+	width: 90%;
+	height: 300px;
+	padding: 10px;
+	border: 1px solid #eee;
+	overflow-y: auto;
+	-webkit-overflow-scrolling:touch;
+}
+.chat_box {
+	display: flex;
+	width: 90%;
+	margin-top: 20px;
+}
+.chat_box .msg {
+	flex: 1;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 6px;
+	border: 1px solid #eee;
+	box-sizing: border-box;
+}
+.chat_box .send {
+	color: #fff;
+	font-size: 14px;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background: #000;
+}
+
+.chat_list li {
+	display: flex;
+	margin-bottom: 10px;
+}
+.chat_list li.current {
+	justify-content: flex-end;
+}
+.chat_list li.current .username {
+	text-align: right;
+}
+.chat_list li.current .content {
+	margin: 0 10px 0 0;
+}
+.chat_list .avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	font-size: 12px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #000;
+}
+.chat_list .content {
+	margin-left: 10px;
+}
+.chat_list .username {
+	color: #666;
+	font-size: 12px;
+	line-height: 1;
+}
+.chat_list .chat {
+	color: #000;
+	font-size: 14px;
+	line-height: 18px;
+	max-width: 160px;
+	padding: 10px;
+	margin-top: 5px;
+	background: #eee;
+	border-radius: 6px;
+}
+
+
+
+
+
+
+
+

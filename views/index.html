@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>chatroom</title>
+	<link rel="stylesheet" href="/styles/base.css">
+	<link rel="stylesheet" href="/styles/chat.css">
+</head>
+<body>
+	<!-- 登陆聊天室 -->
+	<div class="login_module">
+		<input type="text" class="username">
+		<span class="login">进入</span>
+	</div>
+
+	<!-- 聊天室 -->
+	<div class="chat_room">
+		<!-- 聊天室信息 -->
+		<div class="room_info">
+			<span class="online">当前在线人数：<i class="num"></i></span>
+			<span class="tips"></span>
+		</div>
+		<!-- 聊天信息列表 -->
+		<div class="chat_msg">
+			<ul class="chat_list"></ul>
+		</div>
+		<!-- 聊天输入框 -->
+		<div class="chat_box">
+			<input class="msg" type="text">
+			<span class="send">发送</span>
+		</div>
+	</div>
+
+
+	<!-- 脚本 -->
+	<script src="/scripts/config.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/scripts/chat.js"></script>
+
+</body>
+</html>
