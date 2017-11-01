@@ -47,6 +47,7 @@ server.listen(config.port, '0.0.0.0', function(err){
 const io = websocket(server);
 
 let onlineUsers = [];
+let user = '';
 let messages = [];
 let room = 'test';
 
@@ -54,9 +55,10 @@ io.on('connection', function(socket){
 	console.log('websocket is connection');
 
 	/**
-	 * 监听登陆
+	 * 监听用户登陆
 	 */
 	socket.on('login', function(data){
+		user = data;
 		onlineUsers.push(data);
 		socket.join(room);
 		io.sockets.emit('login', {onlineUsers: onlineUsers, joinUser: data});
@@ -71,6 +73,15 @@ io.on('connection', function(socket){
 	socket.on('message', function(data){
 		messages.push(data);
 		io.sockets.in(room).emit('message', messages);
+	});
+
+	/**
+	 * 监听用户退出
+	 */
+	socket.on('disconnect', function(){
+		var index = onlineUsers.indexOf(user);
+		onlineUsers.splice(index, 1);
+		io.sockets.in(room).emit('logout', {onlineUsers: onlineUsers, logoutUser: user});
 	});
 
 

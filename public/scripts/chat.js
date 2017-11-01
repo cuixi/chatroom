@@ -63,7 +63,11 @@ window.onload = function(){
 			var len = onlineInfo.onlineUsers.length;
 			
 			num.innerHTML = len;
-			tips.innerHTML = '欢迎 ' + onlineInfo.joinUser.username + ' 加入聊天室';
+			if(onlineInfo.joinUser){
+				tips.innerHTML = '欢迎 ' + onlineInfo.joinUser.username + ' 加入聊天室';
+			}else if(onlineInfo.logoutUser){
+				tips.innerHTML = onlineInfo.logoutUser.username + ' 退出聊天室';
+			}
 			setTimeout(function(){
 				tips.innerHTML = '';
 			}, 5000);
@@ -122,14 +126,17 @@ window.onload = function(){
 			// 用户登陆
 			this.socket.emit('login', this.user);
 			this.socket.on('login', function(data){
-				self.onlineInfo = data;
-				interface.updateOnlineInfo(self.onlineInfo);
+				interface.updateOnlineInfo(data);
 			});
 
 			// 监听用户消息
 			this.socket.on('message', function(data){
 				self.msgList = data;
 				interface.updateMsg(self.msgList, self.user);
+			});
+
+			this.socket.on('logout', function(data){
+				interface.updateOnlineInfo(data);
 			});
 		},
 		sendMsg: function(msg){
