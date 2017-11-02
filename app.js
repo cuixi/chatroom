@@ -47,13 +47,12 @@ server.listen(config.port, '0.0.0.0', function(err){
 const io = websocket(server);
 
 let onlineUsers = [];
-let user = '';
 let messages = [];
 let room = 'test';
 
 io.on('connection', function(socket){
-	console.log('websocket is connection');
-
+	let user = '';
+	
 	/**
 	 * 监听用户登陆
 	 */
